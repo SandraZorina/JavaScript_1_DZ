@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 2-5</title>
+</head>
+<body>
+    
+    <script>
+        
+    // 2. Работа с переменными - поменять местами значение переменных а и b.
+        var a = 10, b = 20;
+            a = a + b;
+            b = a - b;
+            a = a - b;
+        console.log('a = ' + a + ', b = ' + b);
+        
+    //3. Объявить две переменные: admin и name. Записать в name строку "Василий"; Скопировать значение из name в admin. Вывести admin (должно вывести «Василий»)
+        var admin, name = 'Василий';
+            admin = name;
+            alert('admin: ' + admin); 
+             
+    // 4. * Чему будет равно JS-выражение 1000 + "108"?
+        // будет равно 1000108, т.к. склеивается число и строка.
+        
+    // 5. * Рразобраться с атрибутами тега script (async и defer).
+        // async и defer работают только при html5.
+        // async: - работает html и загружается script, 
+        //        - затем html на паузе, а работает script,
+        //        - затем html дальше работает.
+        // defer: - работает html и загружается script,
+        //        - а затем работает script. 
+                  
+                      
+    </script>
+    
+    
+</body>
+</html>
