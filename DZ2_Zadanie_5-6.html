@@ -1,0 +1,55 @@
+<script>
+
+var x, y;
+    
+// Задание 5: 
+    
+    function plus(x, y) {
+    return x + y;
+}
+    var p = plus (5, 4);
+    console.log(p);
+    
+
+    function minus(x, y) {
+    return x - y;
+}
+    var m = minus (7, 3);
+    console.log(m);
+    
+
+    function multi(x, y) {
+    return x * y;
+}
+    var u = multi (2, 6);
+    console.log(u);
+
+    
+    function divis(x, y) {
+    return x / y;
+}
+    var d = divis (9, 3);
+    console.log(d);
+    
+    
+// Задание 6:
+    
+function mathOperation(arg1, arg2, operation) {
+    switch (operation) {
+        case 'plus':
+            return plus(arg1, arg2);
+        case 'minus':
+            return minus(arg1, arg2);
+        case 'multi':
+            return multi(arg1, arg2);
+        case 'divis':
+            return divis(arg1, arg2);
+    }
+};
+    
+console.log(mathOperation(7, 3, 'plus'));
+console.log(mathOperation(32, 12, 'minus'));
+console.log(mathOperation(9, 6, 'multi'));
+console.log(mathOperation(24, 8, 'divis')); 
+    
+</script>
