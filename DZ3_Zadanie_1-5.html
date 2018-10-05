@@ -1,0 +1,50 @@
+<script>
+
+document.write('Задание 1:' + '<br>');
+for (var i = 2; i <= 100; i++) {
+    for (var j = 2; j < i; j++) {
+        if (i % j == 0) break;
+    }   
+        if (i == j) document.write(i + " ");
+    }
+
+    
+document.write('<br>' + '<br>' + 'Задание 2:' + '<br>');
+var a = -1;
+    do {
+        a++;
+        if (a === 0){
+            document.write(a + ' - это ноль' + '<br>');
+        } else if (a % 2 === 0){
+            document.write(a + ' - это четное число' + '<br>');
+        } else {
+            document.write(a + ' - это нечетное число' + '<br>');
+            }
+    } while (a < 10);
+
+    
+document.write('<br>' + 'Задание 3:' + '<br>');
+for (var i = 0; i <= 9; document.write(i++ + " ")) {
+}
+    
+    
+console.log('Задание 4:');    
+str = ' ';
+for(var i = 0; i <= 25; i++) {
+    str += 'x';
+    console.log(str);
+}
+    
+    
+console.log('Задание 5: (из методички)');   
+var shopBasket = [25, 50, 75, 100];
+function countBasketPrice(shopBasket) {
+    var sum = 0;
+    for (var i = 0; i < shopBasket.length; i++) {
+        sum += shopBasket[i];
+    }
+    console.log('Стоимость товаров в корзине: ' + sum);
+}
+countBasketPrice(shopBasket);
+    
+</script>
