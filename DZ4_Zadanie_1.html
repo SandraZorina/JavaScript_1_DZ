@@ -1,0 +1,22 @@
+<script>
+
+function convert(n) {
+    var object = {};
+    if (n < 1 || n > 999 || isNaN(n)) {
+        console.log('Ошибочка вышла. Введите число от 0 до 999.');
+        return object;
+    } else {
+        object['единицы'] = n % 10;
+        object['десятки'] = (n - object['единицы']) % 100 / 10;
+        object['сотни'] = (n - object['единицы'] - object['десятки'] * 10) % 1000 / 100;
+        return object;
+    }
+}
+console.log(convert(9));
+console.log(convert(79));
+console.log(convert(379));
+console.log(convert(1379));
+console.log(convert(0));
+console.log(convert('семь'));
+    
+</script>
