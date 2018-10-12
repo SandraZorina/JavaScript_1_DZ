@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table {
+            font-family: Roboto ,sans-serif;
+            font-size: 30px;
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+        }
+        td {
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid black;
+        }
+        tr:nth-child(even) td:nth-child(odd) {
+            background-color: brown;
+        }
+        tr:nth-child(odd) td:nth-child(even) {
+            background-color: brown;
+        }
+        tr:last-child td:nth-child(odd),
+        tr:first-child td:nth-child(even) {
+            background-color: white;
+        }
+        tr:nth-child(even) td:first-child {
+            background-color: white;
+        }
+        tr:nth-child(odd) td:last-child {
+            background-color: white;
+        }
+        tr:first-child td,
+        tr td:last-child {
+            transform: rotate(180deg);
+        }
+        tr:nth-child(2) td,
+        tr:nth-child(3) td {
+            transform: rotate(180deg);
+        }
+        tr:nth-child(2) td:first-child,
+        tr:nth-child(3) td:first-child {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+    function chessBoard() {
+        var newTable = document.createElement("table"),
+            letsUp = ['', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A', ''],
+            letsDown = ['', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', ''],
+            blackFig1 = ['8','&#9820;','&#9822;','&#9821;','&#9819;','&#9818;','&#9821;','&#9822;','&#9820;','1'],
+            whiteFig1 = ['1','&#9814;','&#9816;','&#9815;','&#9813;','&#9812;','&#9821;','&#9815;','&#9814;','8'],
+            blackFig2 = ['7','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','2'],
+            whiteFig2 = ['2','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','7'];
+        for (var i = 0, a = 9; i < 10, a >= 0; i++, a--) {
+            var Tr = newTable.insertRow(i);
+            for (var j = 0; j < 10; j++){
+                var Td = Tr.insertCell(j);
+                switch (i) {
+                    case 0:
+                        Td.innerText = letsUp[j];
+                        break;
+                    case 1:
+                        Td.innerHTML = blackFig1[j];
+                        break;
+                    case 2:
+                        Td.innerHTML = blackFig2[j];
+                        break;
+                    case 7:
+                        Td.innerHTML = whiteFig2[j];
+                        break;
+                    case 8:
+                        Td.innerHTML = whiteFig1[j];
+                        break;
+                    case 9:
+                        Td.innerHTML = letsDown[j];
+                        break;
+                    default:
+                        if (j === 0) {
+                                Td.innerHTML = a;
+                            }
+                            if (j === 9) {
+                                Td.innerHTML = i;
+                            }
+                        break
+                }
+            }
+        }
+        document.body.appendChild(newTable);
+    };
+    chessBoard();
+        
+    </script>
+</body>
+</html>
