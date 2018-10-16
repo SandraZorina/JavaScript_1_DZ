@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #main {
+            position: relative;
+            margin: 100px auto;
+            padding: 20px;
+            width: 360px;
+            height: 360px;
+            background-color: white;
+            border: 3px solid black;
+            border-radius: 15px;
+        }
+
+        #scr {
+            margin: 20px auto;
+            width: 320px;
+            height: 320px;
+            margin-top: 20px;
+            background-color: white;
+            background-size: cover;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        button {
+            position: absolute;
+            top: 150px;
+            width: 25px;
+            height: 70px;
+            font: 12pt arial, tahoma, sans-serif;
+            text-align: center;
+        }
+
+        .left {
+            left: 5px;
+        }
+
+        .right {
+            right: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <button class="left" onclick="slider.left();">&#171;</button>
+        <div id="scr"></div>
+        <button class="right" onclick="slider.right();">&#187;</button>
+    </div>
+    
+    
+    <script>
+        
+        var slider = {
+            slides: ['small/image_1.jpeg', 'small/image_2.jpg', 'small/image_3.jpeg'],
+            frame: 0, // текущий кадр для отбражения - индекс картинки из массива
+            set: function(image) { // установка нужного фона слайдеру
+                document.getElementById("scr").style.backgroundImage = "url(" + image + ")";
+            },
+            init: function() { // запуск слайдера с картинкой с нулевым индексом
+                this.set(this.slides[this.frame]);
+            },
+            left: function() { // крутим на один кадр влево
+                this.frame--;
+                if (this.frame < 0) this.frame = this.slides.length - 1;
+                this.set(this.slides[this.frame]);
+            },
+            right: function() { // крутим на один кадр вправо
+                this.frame++;
+                if (this.frame == this.slides.length) this.frame = 0;
+                this.set(this.slides[this.frame]);
+            }
+        };
+        window.onload = function() { // запуск слайдера после загрузки документа
+            slider.init();
+            setInterval(function() { // ставим интервал для перелистывания картинок 3сек.
+                slider.right();
+            }, 3000);
+        };
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .catalog li {
+            list-style-type: none;
+            max-width: 200px;
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .catalog p {
+            width: 100%;
+            text-align: center;
+            margin: 0;
+        }
+
+        .price {
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h4>Каталог</h4>
+    <div class="catalog">
+        <ul>
+            <li class="item">
+                <img src="img/jork.jpg" width="70" height="120" alt="Сухой корм для йорка"><br>
+                <p class="name">Сухой корм для йорка</p><br>
+                <span class="price">200</span><br>
+                <button class="buy">Купить</button>
+            </li>
+            <li class="item">
+                <img src="img/labr.jpg" width="70" height="120" alt="Сухой корм для лабрадора"><br>
+                <p class="name">Сухой корм для лабрадора</p><br>
+                <span class="price">400</span><br>
+                <button class="buy">Купить</button>
+            </li>
+            <li class="item">
+                <img src="img/taks.jpg" width="70" height="120" alt="Сухой корм для таксы"><br>
+                <p class="name">Сухой корм для таксы</p><br>
+                <span class="price">300</span><br>
+                <button class="buy">Купить</button>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <h4>Корзина</h4>
+        <span id="summa">Сумма заказа: </span><span id="sum">0</span>
+        <ul id="cart"></ul>
+    </div>
+
+
+<script>
+
+    var product = document.getElementsByClassName('buy'),
+        sum = 0;
+    for (var i = 0; i < product.length; i++) {
+        product[i].onclick = addproduct;
+    }
+    
+    function addproduct(event) {
+        var parent = this.parentNode,
+            name = parent.querySelector('.name').innerHTML,
+            price = +parent.querySelector('.price').innerHTML;
+        var content = document.createElement('li');
+        content.innerHTML = name + ': ' + price;
+        cart.appendChild(content);
+        sum += price;
+        document.getElementById('sum').innerHTML = sum;
+    }
+    
+</script>
+</body>
+
+</html>

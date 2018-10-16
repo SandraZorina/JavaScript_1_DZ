@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #big {
+            width: 360px;
+            height: 360px;
+            outline: 1px solid black;
+        }
+
+        #big img {
+            width:360px;
+        }
+
+        #gallery {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        #gallery img {
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+<h2>Картинки</h2>
+<div id="big">
+    
+</div>
+<div id="gallery">
+    <img class="image" src="small/image_1.jpeg" alt="photo">
+    <img class="image" src="small/image_2.jpg" alt="photo">
+    <img class="image" src="small/image_3.jpeg" alt="photo">
+</div>
+
+<script>
+
+	function changePicture(event) {
+		let bigDiv = document.getElementById('big'); // нашли большой блок
+		bigDiv.innerHTML = ''; // обнуление блока
+		let smallSrc = event.currentTarget.getAttribute('src'), // нашли src
+			newImg = document.createElement('img'); // создали <img>
+
+		newImg.src = smallSrc.replace('small', 'big'); // меняем small на big
+		bigDiv.appendChild(newImg); // добавляем элемент в #big
+        newImg.onerror = function() { // если фото нет, то вывод сообщения
+            alert("Котейка не найден");
+        }
+	}
+
+	let images = document.getElementsByClassName('image');
+	for (let i = 0; i < images.length; i++) {
+		images[i].onclick = changePicture;
+    }
+    
+</script>
+</body>
+</html>
